@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 레시피 추천 — 냉장고 파먹기</title>
+  <meta name="description" content="냉장고 속 재료를 입력하면 Google Gemini가 지금 만들 수 있는 레시피를 추천해드려요." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo"><span class="dot"></span>냉장고 파먹기</a>
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="recipe.html" aria-current="page">AI 레시피 추천</a></li>
+        <li><a href="about.html">서비스 소개</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:48px;">
+      <div class="container">
+        <div class="section-head left">
+          <span class="eyebrow">AI 기능</span>
+          <h1 style="font-size:2rem;">냉장고 속 재료, 지금 입력해보세요</h1>
+          <p>쉼표로 구분해서 입력하면 돼요. 재료가 적어도 괜찮아요, AI가 최대한 활용해볼게요.</p>
+        </div>
+
+        <div class="recipe-layout">
+          <!-- 입력 패널 -->
+          <div class="panel">
+            <form id="recipe-form" novalidate>
+              <div class="field">
+                <label for="ingredients">가지고 있는 재료</label>
+                <textarea
+                  id="ingredients"
+                  name="ingredients"
+                  rows="4"
+                  placeholder="예: 계란, 대파, 김치, 밥, 어묵"
+                  required
+                ></textarea>
+                <div class="chip-row" id="chip-row">
+                  <button type="button" class="chip" data-value="계란">+ 계란</button>
+                  <button type="button" class="chip" data-value="대파">+ 대파</button>
+                  <button type="button" class="chip" data-value="두부">+ 두부</button>
+                  <button type="button" class="chip" data-value="김치">+ 김치</button>
+                  <button type="button" class="chip" data-value="밥">+ 밥</button>
+                  <button type="button" class="chip" data-value="양파">+ 양파</button>
+                </div>
+                <p class="hint">필수 입력이에요. 최소 1개 이상의 재료를 적어주세요.</p>
+              </div>
+
+              <div class="field">
+                <label for="meal-type">원하는 스타일 (선택)</label>
+                <select id="meal-type" name="meal-type">
+                  <option value="아무거나">상관없어요</option>
+                  <option value="간단하고 빠르게">간단하고 빠르게 (10분 내외)</option>
+                  <option value="한식">한식</option>
+                  <option value="양식/분식">양식·분식</option>
+                  <option value="다이어트/저칼로리">다이어트·저칼로리</option>
+                </select>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary" style="width:100%;">
+                레시피 추천받기
+              </button>
+
+              <div id="status-msg" class="status-msg" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <!-- 결과 패널 -->
+          <div id="result-area"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      냉장고 파먹기 · AI 웹 서비스 실습 프로젝트 · Google Gemini API 기반
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/recipe.js"></script>
+</body>
+</html>
