@@ -87,7 +87,7 @@ def call_gemini(prompt: str, api_key: str) -> dict:
     }
     response = requests.post(
         GEMINI_URL,
-        params={"key": api_key},
+        headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
         json=payload,
         timeout=REQUEST_TIMEOUT_SECONDS,
     )
