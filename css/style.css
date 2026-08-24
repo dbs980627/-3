@@ -65,8 +65,7 @@ p { margin: 0 0 1em; color: var(--color-ink-soft); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(239, 242, 234, 0.9);
-  backdrop-filter: blur(8px);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-line);
 }
 
