@@ -44,7 +44,7 @@ GEMINI_URL = (
     f"https://generativelanguage.googleapis.com/v1beta/models/"
     f"{GEMINI_MODEL}:generateContent"
 )
-REQUEST_TIMEOUT_SECONDS = 15  # vercel.json 의 maxDuration(30초)보다 짧게 설정
+REQUEST_TIMEOUT_SECONDS = 55  # vercel.json 의 maxDuration(60초, Hobby 플랜 최대치)보다 짧게 설정
 
 RECIPE_SCHEMA = {
     "type": "OBJECT",

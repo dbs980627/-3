@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultArea = document.getElementById('result-area');
   const chipRow = document.getElementById('chip-row');
 
-  const TIMEOUT_MS = 20000; // 20초 이상 응답이 없으면 지연으로 간주
+  const TIMEOUT_MS = 58000; // 58초 이상 응답이 없으면 지연으로 간주 (백엔드 55초보다 여유를 둠)
 
   // 자주 쓰는 재료를 클릭하면 입력창에 바로 추가되는 칩 버튼
   if (chipRow) {
