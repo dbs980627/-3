@@ -4,8 +4,8 @@
 "영수증" 형태로 추천해주는 웹 서비스입니다. 자취생·1인 가구가 장 보기 전에
 냉장고 재료부터 소진하도록 돕는 것이 목표입니다.
 
-- **배포 URL**: `<여기에 Vercel 배포 주소를 입력하세요>` (예: https://your-project.vercel.app)
-- **GitHub 저장소**: `<여기에 저장소 주소를 입력하세요>`
+- **배포 URL**: https://recipe-yjc5.vercel.app/
+- **GitHub 저장소**: https://github.com/dbs980627/-3
 
 ---
 
@@ -25,7 +25,7 @@
 
 - **프론트엔드**: HTML5, CSS3(반응형, Flexbox/Grid), Vanilla JavaScript (프레임워크 없음)
 - **백엔드**: Python 3 기반 Vercel Serverless Function (`api/recommend.py`)
-- **AI API**: Google Gemini API (`gemini-2.0-flash`, `generateContent`)
+- **AI API**: Google Gemini API (`gemini-3.6-flash`, `generateContent`)
 - **배포**: Vercel (GitHub 연동 자동 배포)
 
 ### 폴더 구조
@@ -56,7 +56,7 @@ recipe-ai/
 ### 3-1. 저장소 클론
 
 ```bash
-git clone <저장소 주소>
+git clone https://github.com/dbs980627/-3.git
 cd recipe-ai
 ```
 
@@ -82,7 +82,7 @@ vercel dev
 
 ```
 GEMINI_API_KEY=발급받은_API_키
-GEMINI_MODEL=gemini-2.0-flash
+GEMINI_MODEL=gemini-3.6-flash
 ```
 
 `GEMINI_API_KEY`는 [Google AI Studio](https://aistudio.google.com/apikey)에서 무료로 발급받을 수 있습니다.
@@ -101,7 +101,7 @@ GEMINI_MODEL=gemini-2.0-flash
    | Key | Value |
    |---|---|
    | `GEMINI_API_KEY` | 발급받은 Gemini API 키 |
-   | `GEMINI_MODEL` | `gemini-2.0-flash` (선택, 생략 시 기본값 사용) |
+   | `GEMINI_MODEL` | `gemini-3.6-flash` (선택, 생략 시 기본값 사용) |
 
 5. **Deploy**를 클릭하면 빌드가 진행되고, 완료되면 `https://프로젝트명.vercel.app` 주소가 발급됩니다.
 6. 배포 후 실제 주소에서 3개 페이지 이동, 모바일 화면(개발자 도구 반응형 모드 또는 실제 기기),
@@ -127,7 +127,9 @@ Gemini API 키는 절대 프론트엔드(JavaScript) 코드에 직접 넣으면 
 | 변수명 | 필수 여부 | 설명 |
 |---|---|---|
 | `GEMINI_API_KEY` | 필수 | Google AI Studio에서 발급받은 Gemini API 키 |
-| `GEMINI_MODEL` | 선택 | 사용할 Gemini 모델명 (기본값: `gemini-2.0-flash`) |
+| `GEMINI_MODEL` | 선택 | 사용할 Gemini 모델명 (기본값: `gemini-3.6-flash`) |
+
+> ⚠️ Gemini 모델은 세대교체가 매우 빠릅니다(개발 중에도 `gemini-2.0-flash` → `gemini-2.5-flash` → `gemini-3.6-flash` 순으로 3번 바뀌었습니다). AI 기능에서 `status 404`와 함께 "no longer available" 같은 오류가 나면, 가장 먼저 [Gemini API 모델 목록](https://ai.google.dev/gemini-api/docs/models)에서 최신 모델명을 확인하고 `GEMINI_MODEL` 환경 변수(또는 `api/recommend.py`의 기본값)를 갱신하세요.
 
 ---
 
